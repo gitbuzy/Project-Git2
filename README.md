@@ -26,8 +26,9 @@ pdsnd_github (forked repository)
 3. Repository Changes
 ---------------------
 Clone forked repository: https://github.com/gitbuzy/pdsnd_github.git
-
-
+*Refactoring Branch
+	*Create a new branch: refactoring
+		*Commited 4 changes to branch
 
 4. Project Resources
 --------------------
