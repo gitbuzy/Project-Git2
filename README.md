@@ -25,9 +25,13 @@ pdsnd_github (forked repository)
 
 ### Repository Changes ###
 ---------------------
-Clone forked repository: [https://github.com/gitbuzy/pdsnd_github.git](https://github.com/gitbuzy/pdsnd_github.git)
-Added new branch documentation
-Commited three changes on documentation branch
+*Master Branch
+	*Clone forked repository: [https://github.com/gitbuzy/pdsnd_github.git](https://github.com/gitbuzy/pdsnd_github.git)
+*Documentation Branch
+	*Added new branch documentation
+		*Commited three changes on documentation branch
+			*Commited an additional two changes
+*Refactoring Branch
 
 
 #### Project Resources ####
