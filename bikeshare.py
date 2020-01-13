@@ -15,15 +15,16 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    
+
     cities = CITY_DATA.keys()
     months = ('all', 'january', 'february','march', 'april', 'may', 'june')
     days = ('all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    city_name= "chicago, new york city or washington"
     while True:
-        city = input('Which city would you like to view: chicago, new york city, washington?\n').lower()
+        city = input('Which city would you like to view:{}?\n'.format(city_name)).lower()
         if city not in cities:
             print('Invalid response, please try again.')
             continue
@@ -67,15 +68,15 @@ def load_data(city, month, day):
     df['Start Time']= pd.to_datetime(df['Start Time'])
     df['DOW'] = df['Start Time'].dt.weekday
     df['month'] = df['Start Time'].dt.month
-    
+
     if month != 'all':
         months = ['january','february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
         df = df[df['month'] == month]
-        
+
     if day != 'all':
         df= df[df['DOW'] == day]
-        
+
     return df
 
 
@@ -158,7 +159,7 @@ def user_stats(df):
         print('Gender Types:', gender)
     except KeyError:
         print('No data available at this time')
-        
+
 
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
@@ -166,45 +167,45 @@ def user_stats(df):
         print('The earliest birth year recorded:', year_birth_max)
     except KeyError:
         print('No data available at this time')
-        
+
     try:
         year_birth_min = df['Birth Year'].min()
         print('The latest year recorded:', year_birth_min)
     except KeyError:
         print('No data avaiable at this time')
-    
+
     try:
         year_birth_common = df['Birth Year'].mode()[0]
         print('The common year recorded:', year_birth_common)
     except KeyError:
         print('No data available at this time')
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-    #TO DO: Prompt the user if they want to see 5 lines of raw data, display that data if the answer is 'yes', 
+    #TO DO: Prompt the user if they want to see 5 lines of raw data, display that data if the answer is 'yes',
     #and continue these prompts and displays until the user says 'no'.
 
 def raw_data(df):
         """Display raw data upon user's request
         If the answer is Yes ask the user if you want to see 5 more rows of data. Continue to ask until the answer is No"""
-        
+
         rows = 0
         data_view = input('Would you like to see 5 rows of raw data? Yes or No\n').lower()
-        
+
         while data_view == 'Yes':
               print(df[rows:rows +5])
               rows = rows +5
               data_view =input('Would you like to see 5 more rows of raw data? Yes or No\n').lower()
-            
-        print('Thank you. Goodbye:-)') 
-      
+
+        print('Thank you. Goodbye:-)')
+
 
 def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
-        
+
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
