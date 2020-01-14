@@ -31,8 +31,10 @@ pdsnd_github (forked repository)
 	*Added new branch documentation
 		*Commited three changes on documentation branch
 			*Commited an additional two changes
-*Refactoring Branch
 
+*Refactoring Branch
+	*Create a new branch: refactoring
+		*Commited 4 changes to branch
 
 #### Project Resources ####
 --------------------
